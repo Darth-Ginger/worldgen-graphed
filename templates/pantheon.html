@@ -1,0 +1,14 @@
+{% for attr,data in world_data.pantheon.items() %}
+
+<table style="padding-left:50px">
+  <tr>
+    <td>
+      <b>{{data.name}}</b>
+    </td>
+    <td>
+      <p>{{data.domain}}</p>
+    </td>
+  </tr>
+ {% endfor %}
+</table>
+

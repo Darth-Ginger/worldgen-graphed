@@ -1,0 +1,56 @@
+<spn id="geography">
+    <table>
+        <tr>
+            <td>
+                <b>World Name:</b>
+            </td>
+            <td>
+                {% set upper_world_name = [world_name[0]|upper,world_name[1:]]|join() %}
+                <b>{{upper_world_name}}</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Size:</b>
+            </td>
+            <td>
+                {{world_data["Geography"]["size"]}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Balance:</b>
+            </td>
+            <td>
+                {{world_data["Geography"]["balance"]}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Landmarks:</b>
+            </td>
+            <td>
+                <ul>
+                    {% for lm in world_data["Geography"]["landmarks"] %}
+                    <li>
+                        {{ lm }}
+                        <ul>
+                           
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Description:</b>
+            </td>
+            <td>
+                {{world_data["Geography"]["description"]}}
+            </td>
+        </tr>
+    </table>
+    </span>
+    
+      

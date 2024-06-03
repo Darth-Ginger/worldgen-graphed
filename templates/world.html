@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}{{ world_name }}{% endblock %} 
+{%block script %}
+<script language="javascript" type="text/javascript">
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+{% endblock %} 
+
+{%block content %}
+<h1>{{ world_name }}</h1>
+
+{% for key, data in world_data.items() %}
+  {% set cat_page = [key|lower,".html"]|join()%} 
+  {% if cat_page != "relationships.html" %}
+    {% if cat_page is defined %}
+      <button type="button" class="collapsible">
+        <h3>{{[key[0]|upper,key[1:]]|join()}}</h3>
+      </button>
+      <div class="collapsible-content">
+        {% include cat_page %}
+      </div>
+      {% endif %}
+    {% endif %} 
+  {% endfor %} 
+{% endblock %}
